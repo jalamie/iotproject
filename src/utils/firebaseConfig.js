@@ -1,17 +1,17 @@
-// src/utils/firebaseConfig.js
-
-import { initializeApp } from '@firebase/app';
-import { getAuth } from '@firebase/auth';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDc3qxRx6i28a_tY3bMB0tXWK3jM7MUo-g",
-    authDomain: "capstone-sal.firebaseapp.com",
-    projectId: "capstone-sal",
-    storageBucket: "capstone-sal.firebasestorage.app",
-    messagingSenderId: "506687469413",
-    appId: "1:506687469413:web:661076c64cf63e6197138c",
-    measurementId: "G-YPD0ZE5W55"
-  };
+  apiKey: "AIzaSyCy3lsDt8I0FEDRzX79AAUjEihm5p_2awc",
+  authDomain: "notsmartglasses.firebaseapp.com",
+  projectId: "notsmartglasses",
+  storageBucket: "notsmartglasses.firebasestorage.app",
+  messagingSenderId: "427015571141",
+  appId: "1:427015571141:web:ba9fb21bc88a40a65c12ac",
+  measurementId: "G-69BT4T3QRN"
+};
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const db = getFirestore(app);
+
+export { db };
