@@ -1,64 +1,46 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { getAuth, signOut } from 'firebase/auth';
-import { MaterialIcons } from '@expo/vector-icons';
-import DropdownComponent from '../components/Dropdown';
+import React from "react";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-export default function HomeScreen() {
-  const auth = getAuth();
-  const [selectedValue, setSelectedValue] = useState("select");
-
-  const handleLogout = () => {
-    signOut(auth);
-    setSelectedValue("select"); // Reset dropdown to "Select Option" on logout
-  };
-
-  const handleDropdownChange = (value) => {
-    setSelectedValue(value);
-  };
+const HomeScreen = ({ navigation, route }) => {
+  const { userId } = route.params; // Retrieve the user ID passed from AuthScreen
 
   return (
     <View style={styles.container}>
-      {/* Power-off icon for logout */}
-      <TouchableOpacity style={styles.logoutIcon} onPress={handleLogout}>
-        <MaterialIcons name="power-settings-new" size={28} color="red" />
+      <Text style={styles.title}>Welcome</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("LanguageSelector", { userId })}
+      >
+        <Text style={styles.buttonText}>Change Language</Text>
       </TouchableOpacity>
-
-      {/* Custom Dropdown */}
-      <View style={styles.dropdownContainer}>
-        <DropdownComponent selectedValue={selectedValue} setSelectedValue={handleDropdownChange} />
-      </View>
-
-      {/* Display the selected state */}
-      <Text style={styles.stateText}>
-        {selectedValue === "1" && "You selected: State 1"}
-        {selectedValue === "2" && "You selected: State 2"}
-        {selectedValue === "3" && "You selected: State 3"}
-      </Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
     padding: 16,
-    paddingTop: 40, // Adjust for status bar
+    backgroundColor: "#fff",
   },
-  logoutIcon: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 16,
   },
-  dropdownContainer: {
-    position: 'absolute',
-    top: 10,
-    left: 10,
-    width: '40%',
+  button: {
+    backgroundColor: "#4CAF50",
+    padding: 16,
+    borderRadius: 8,
+    marginTop: 16,
+    alignItems: "center",
   },
-  stateText: {
-    fontSize: 18,
-    marginTop: 100,
-    textAlign: 'center',
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
   },
 });
+
+export default HomeScreen;
