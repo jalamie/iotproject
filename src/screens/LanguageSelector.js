@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { fetchUserData, saveFavorites, saveSelectedLanguage } from "../utils/firebaseUtils";
 import { useFocusEffect } from "@react-navigation/native";
+import AudioPlayer from "../components/AudioPlayer";
 
 
 const LanguageSelector = ({ navigation, route }) => {
@@ -68,6 +69,7 @@ const LanguageSelector = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
+    <AudioPlayer userId={userId} />
       <Text style={styles.heading}>Current Language: {selectedLanguage}</Text>
       <Text style={styles.subheading}>Favorites</Text>
 

@@ -1,4 +1,5 @@
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+
 import { db } from "./firebaseConfig";
 
 // Fetch user data from Firebase
@@ -43,6 +44,29 @@ export const saveSelectedLanguage = async (userId, language) => {
     console.log("Selected language updated successfully");
   } catch (error) {
     console.error("Error updating selected language: ", error);
+    throw error;
+  }
+};
+// Function to fetch audio URL from Firestore
+export const getAudioFileUrl = async (userId) => {
+  try {
+    // Reference to the user's document in Firestore
+    const userDocRef = doc(db, "users", userId);
+    const userDocSnap = await getDoc(userDocRef);
+
+    if (userDocSnap.exists()) {
+      const userData = userDocSnap.data();
+      if (userData.audio_url) {
+        console.log("Audio URL fetched successfully:", userData.audio_url);
+        return userData.audio_url; // Return the audio_url field
+      } else {
+        throw new Error("Audio URL not found in Firestore document.");
+      }
+    } else {
+      throw new Error("User document does not exist.");
+    }
+  } catch (error) {
+    console.error("Error fetching audio URL from Firestore:", error);
     throw error;
   }
 };
