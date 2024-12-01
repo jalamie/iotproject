@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const HomeScreen = ({ navigation, route }) => {
   const { userId } = route.params; // Retrieve the user ID passed from AuthScreen
@@ -9,9 +9,15 @@ const HomeScreen = ({ navigation, route }) => {
       <Text style={styles.title}>Welcome</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("LanguageSelector", { userId })}
+        onPress={() => navigation.navigate('LanguageSelector', { userId })}
       >
         <Text style={styles.buttonText}>Change Language</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('ViewImages', { userId })}
+      >
+        <Text style={styles.buttonText}>View Images</Text>
       </TouchableOpacity>
     </View>
   );
@@ -20,25 +26,25 @@ const HomeScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 16,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 16,
   },
   button: {
-    backgroundColor: "#4CAF50",
+    backgroundColor: '#4CAF50',
     padding: 16,
     borderRadius: 8,
     marginTop: 16,
-    alignItems: "center",
+    alignItems: 'center',
   },
   buttonText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 16,
   },
 });
