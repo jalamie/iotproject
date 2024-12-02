@@ -60,7 +60,7 @@ const LanguageSelector = ({ navigation, route }) => {
           text: "Yes",
           onPress: async () => {
             setSelectedLanguage(language.name);
-            await saveSelectedLanguage(userId, language.name); // Save selected language in Firebase
+            await saveSelectedLanguage(userId, language.name, language.code); // Save selected language in Firebase
           },
         },
       ]

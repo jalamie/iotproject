@@ -37,16 +37,23 @@ export const saveFavorites = async (userId, favorites) => {
 };
 
 // Save selected language to Firebase
-export const saveSelectedLanguage = async (userId, language) => {
+export const saveSelectedLanguage = async (userId, language, languageCode) => {
   try {
     const docRef = doc(db, "users", userId);
-    await updateDoc(docRef, { selectedLanguage: language });
-    console.log("Selected language updated successfully");
+
+    // Update Firestore with selected language name and code
+    await updateDoc(docRef, { 
+      selectedLanguage: language, 
+      selectLanguageCode: languageCode 
+    });
+
+    console.log("Selected language and code updated successfully");
   } catch (error) {
     console.error("Error updating selected language: ", error);
     throw error;
   }
 };
+
 // Function to fetch audio URL from Firestore
 export const getAudioFileUrl = async (userId) => {
   try {
