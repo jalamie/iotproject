@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 8,
     marginBottom: 16,
-    fontSize: 16,
+    fontSize: 25,
   },
   row: {
     flexDirection: "row",
@@ -121,10 +121,10 @@ const styles = StyleSheet.create({
     borderBottomColor: "#ccc",
   },
   language: {
-    fontSize: 16,
+    fontSize: 25,
   },
   heart: {
-    fontSize: 18,
+    fontSize: 25,
     color: "red", // Default heart color for active favorites
   },
 });

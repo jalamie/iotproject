@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   title: {
-    fontSize: 24,
+    fontSize: 35,
     fontWeight: "bold",
     marginBottom: 16,
   },
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 20,
   },
 });
 

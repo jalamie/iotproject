@@ -106,12 +106,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   heading: {
-    fontSize: 18,
+    fontSize: 25,
     fontWeight: "bold",
-    marginBottom: 16,
+    marginVertical: 16,
   },
   subheading: {
-    fontSize: 16,
+    fontSize: 25,
     fontWeight: "bold",
     marginBottom: 8,
   },
@@ -124,14 +124,14 @@ const styles = StyleSheet.create({
     borderBottomColor: "#ccc",
   },
   language: {
-    fontSize: 16,
+    fontSize: 25,
   },
   heart: {
-    fontSize: 18,
+    fontSize: 25,
     color: "red",
   },
   addButton: {
-    marginTop: 16,
+    marginBottom: 30,
     padding: 16,
     backgroundColor: "#4CAF50",
     borderRadius: 8,
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   },
   addButtonText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 25,
     fontWeight: "bold",
   },
 });
