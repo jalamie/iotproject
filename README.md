@@ -1,4 +1,2 @@
-# 
-<!-- npm install @react-native-picker/picker -->
-
-npm install react-native-element-dropdown --save
+1. npm install
+2. npx expo start
